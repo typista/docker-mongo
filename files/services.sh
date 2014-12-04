@@ -9,7 +9,7 @@ HOSTNAME=`hostname`
 MONGODB_CONF=/etc/mongod.conf
 sed -ri "s/# nojournal=true/nojournal=true/g" $MONGODB_CONF
 
-mkdir -p /data/db
+#mkdir -p /data/db
 /usr/bin/mongod --smallfiles &
 crontab /root/crontab.txt
 /etc/init.d/crond start
