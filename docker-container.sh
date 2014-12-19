@@ -15,6 +15,7 @@ else
     fi
 	docker run -d --privileged --restart=always --name="$__FQDN__" --hostname="$__HOSTNAME__" \
 		-p 27017:27017 \
+		-v ${PWD}/export/root/:/root/export/ \
 		-v ${PWD}/export/mongo/:/data/db/ \
 		$IMAGE
 	BOOT=./container/docker-boot-$__HOSTNAME__.sh
