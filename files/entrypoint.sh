@@ -14,6 +14,6 @@ fi
 if [ ! -x $EXEC1ST ];then
 	chmod +x $EXEC1ST
 fi
-$EXEC1ST
+$EXEC1ST > /dev/null 2>&1
 /etc/init.d/crond start
 /usr/bin/tail -f /dev/null
