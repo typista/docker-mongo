@@ -11,7 +11,7 @@ else
 	REPO=`echo $REPO | sed -r "s/docker\-//g"`
 	IMAGE=$USER/$REPO
 	if [ "$2" != "" ];then
-    		IMAGE=$IMAGE:$2
+		IMAGE=$IMAGE:$2
 	else
 		VERSION=`docker images | grep "$IMAGE " | sort | tail -1 | awk '{print $2}'`
 		if [ "$VERSION" != "" ];then
