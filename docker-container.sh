@@ -1,6 +1,6 @@
 #!/bin/sh
 USER=typista
-if [ "$2" = "" ];then
+if [ "$1" = "" ];then
 	echo "Input parametor FQDN [and TAG]"
 else
 	__FQDN__=$1
@@ -23,6 +23,11 @@ else
 		-v ${PWD}/export/root/:/root/export/ \
 		-v ${PWD}/export/mongo/:/data/db/ \
 		$IMAGE
+	RESTART=./restart.sh
+	touch $RESTART
+	echo "docker rm -f $__FQDN__" >> $RESTART
+	echo "$0 $__FQDN__" >> $RESTART
+	chmod +x $RESTART
 	BOOT=./container/docker-boot-$__HOSTNAME__.sh
 	BOOT_OFF=./container/docker-boot-off-$__HOSTNAME__.sh
 	REMOVE=./container/docker-remove-$__HOSTNAME__.sh
