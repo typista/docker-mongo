@@ -5,6 +5,6 @@ FROM typista/base
 RUN wget https://raw.githubusercontent.com/typista/docker-mongo/master/files/entrypoint.sh -O /etc/entrypoint.sh && \
 	wget https://raw.githubusercontent.com/typista/docker-mongo/master/files/mongodb.repo -O /etc/yum.repos.d/mongodb.repo && \
 	yum update -y && \
-	yum -y install mongodb-org && \
+	yum -y install bc mongodb-org && \
 	chmod +x /etc/entrypoint.sh
 
